@@ -1,8 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-import { sum } from 'shared'
+import { sum } from '@dreamcacher/shared';
 
 const App: React.FC = () => {
   return (
