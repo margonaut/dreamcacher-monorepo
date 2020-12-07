@@ -1,7 +1,6 @@
 import express from 'express'
 import { sum } from '@dreamcacher/shared'
 
-
 const app = express()
 const port = 3001
 
