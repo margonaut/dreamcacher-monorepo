@@ -1,17 +1,8 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "declaration": true,
-    "sourceMap": true,
-    "outDir": "dist",
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": false,
-    "esModuleInterop": true,
-    "strict": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "jsx": "preserve"
+    "rootDir": "src",
+    "outDir": "dist"
   },
   "include": ["src"]
 }

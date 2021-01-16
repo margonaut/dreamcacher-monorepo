@@ -2,20 +2,31 @@
   "name": "@dreamcacher/api",
   "version": "0.1.0",
   "main": "./dist/index.js",
-  "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "watch": "node ./dist/index.js",
-    "start": "tsc-watch --noClear --onSuccess \"yarn watch\""
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "@types/express": "^4.17.9",
-    "tsc-watch": "^4.2.9",
-    "typescript": "^4.1.2"
+    "start": "node dist/index.js",
+    "watch": "APP_ENV=local tsc-watch --noClear --onSuccess \"yarn start\"",
+    "test": "yarn build && export APP_ENV=test && jest --runInBand"
   },
   "dependencies": {
     "express": "^4.17.1",
-    "@dreamcacher/shared": "0.1.0"
-  }
+    "@dreamcacher/shared": "0.1.0",
+    "@hapi/joi": "^17.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express-promise-router": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/cors": "2.8.6",
+    "@types/express": "^4.17.9",
+    "@types/hapi__joi": "^17.1.6",
+    "@types/jest": "^26.0.18",
+    "@types/supertest": "^2.0.10",
+    "jest": "^26.6.3",
+    "jest-express": "^1.12.0",
+    "supertest": "^6.0.1",
+    "tsc-watch": "^4.2.9",
+    "typescript": "^4.1.2"
+  },
+  "license": "MIT"
 }

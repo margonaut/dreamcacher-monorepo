@@ -5,7 +5,7 @@ const app = express()
 const port = 3001
 
 app.get('/', (req, res) => {
-  res.send(`The sum is! ${sum(1, 2)}`)
+  res.send(`The sum is! ${sum(2, 2)}`)
 })
 
 app.listen(port, () => {

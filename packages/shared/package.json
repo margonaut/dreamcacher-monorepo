@@ -3,14 +3,13 @@
   "version": "0.1.0",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
-  "type": "module",
-  "module": "esnext",
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "tsc -p tsconfig.json --watch"
+    "watch": "tsc -p tsconfig.json --watch  --preserveWatchOutput",
+    "test": "yarn build && export APP_ENV=test && jest \"dist/.*\\.test\\.js\""
   },
   "license": "MIT",
   "devDependencies": {
