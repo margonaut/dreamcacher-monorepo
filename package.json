@@ -13,6 +13,7 @@
     "lint:all": "eslint . --ext .ts",
     "setup:localDatabases": "sh packages/scripts/localSetup/databases.sh",
     "setup:ormconfig": "ts-node ./packages/scripts/configureFiles/ormConfig.ts",
+    "setup:seedDatabase": "ts-node ./packages/scripts/localSetup/seedDatabase.ts",
     "migration:create": "ts-node ./node_modules/typeorm/cli.js migration:create",
     "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
     "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert",
