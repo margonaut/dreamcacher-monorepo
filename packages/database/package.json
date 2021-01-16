@@ -1,0 +1,41 @@
+{
+  "name": "@dreamcacher/database",
+  "version": "0.1.0",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "watch": "APP_ENV=local tsc -p tsconfig.json --watch --preserveWatchOutput",
+    "test": "yarn build && export APP_ENV=test && jest --runInBand \"dist/.*\\.test\\.js\"",
+    "migration:show": "ts-node ./node_modules/typeorm/cli.js migration:show",
+    "migration:generate": "tsc && ts-node ./node_modules/typeorm/cli.js migration:generate",
+    "migration:create": "ts-node ./node_modules/typeorm/cli.js migration:create",
+    "migration:run": "tsc && ts-node ./node_modules/typeorm/cli.js migration:run",
+    "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert"
+  },
+  "dependencies": {
+    "@dreamcacher/shared": "0.1.0",
+    "@hapi/joi": "^17.1.1",
+    "class-validator": "^0.12.2",
+    "pg": "^8.5.1",
+    "typeorm": "^0.2.29"
+  },
+  "devDependencies": {
+    "@types/faker": "^5.1.5",
+    "@types/hapi__joi": "^17.1.6",
+    "@types/jest": "^26.0.16",
+    "faker": "^5.1.0",
+    "jest": "^26.6.3",
+    "ts-node": "^8.10.2",
+    "typescript": "^4.1.2"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./dist/__tests__/setup.js"
+    ]
+  },
+  "license": "ISC"
+}
