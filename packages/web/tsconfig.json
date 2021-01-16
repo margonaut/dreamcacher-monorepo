@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "isolatedModules": true,
+    "noEmit": true,
+    "typeRoots": ["node_modules/@types", "../../node_modules/@types", "src/types/index.d.ts"]
+  },
+  "include": ["src"]
+}
