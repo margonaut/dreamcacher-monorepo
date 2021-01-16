@@ -7,9 +7,24 @@ import {
   Dream,
   dreamFactory,
 } from '@dreamcacher/database'
+import faker from 'faker'
+import parseArgs from 'minimist'
 
 dotenv.config({ path: getEnvPath() })
 const Config = generateConfig()
+
+const seedDatabase = async () => {
+  const { wipeOldData } = parseArgs(process.argv)
+  const connection = await initializeDatabaseConnection()
+
+  if (wipeOldData) {
+    console.log('Wiping existing data...')
+    await Dream.delete({})
+  }
+
+  await createDatabaseEntities()
+  connection.close()
+}
 
 const initializeDatabaseConnection = async (): Promise<Connection> => {
   const connectionOptions = {
@@ -22,13 +37,23 @@ const initializeDatabaseConnection = async (): Promise<Connection> => {
   return await connect(connectionOptions as DatabaseConnectionOptions)
 }
 
-const seedDatabase = async () => {
-  const connection = await initializeDatabaseConnection()
+const createDatabaseEntities = async () => {
+  console.log('Seeidng database with Dreams...')
 
-  const dreams = await Dream.find()
+  await createRandomDream()
+  await createRandomDream()
+  await createRandomDream()
+
+  const dreams = await Dream.find({})
+  console.log('Seeded database with Dreams:')
   console.log(dreams)
+}
 
-  connection.close()
+const createRandomDream = async () => {
+  await dreamFactory({
+    name: `The Night of the ${faker.company.bsAdjective()} ${faker.company.bsNoun()}`,
+    body: faker.lorem.sentence(),
+  })
 }
 
 seedDatabase()
