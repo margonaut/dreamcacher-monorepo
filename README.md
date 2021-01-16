@@ -9,19 +9,19 @@ To Do
 ## Project Setup
 
 ```bash
-// Dependency installation
+# Dependency installation
 yarn install
 yarn build
 
-// Database setup
+# Database setup
 yarn setup:localDatabases
 yarn setup:ormconfig
 yarn migration:run
 
-// Seed the database
+# Seed the database
 yarn setup:seedDatabase
 
-// Start the project
+# Start the project
 yarn watch
 ```
 
@@ -30,7 +30,7 @@ yarn watch
 When running commands, take note of the directory you're working within. Commands should ideally be run from the root directory. In order to run a script within the context of a specific package instead of the root (for example, to install a new node module), either navigate to the directory or run the command with one of the following yarn workspace scripts:
 
 ```bash
-// To run commands within a specifc package, use:
+# To run commands within a specifc package, use:
 yarn api <command>
 yarn database <command>
 yarn scripts <command>
@@ -42,24 +42,38 @@ yarn web <command>
 
 Note: If working locally, you must `yarn build` the `database` package before the CLI will recognize any changes to the entity or migration files. This is because it will reference the `./dist` folder instead of the TypeScript files.
 
-Generate the `ormconfig.json` file used to configure TypeORM CLI
+### Configure TypeORM
 
-Generate a migration file from changes to entity files
+```bash
+# Generate ormconfig.json, used to configure TypeORM CLI
+yarn setup:ormconfig
+```
 
-`yarn migration:generate`
+### Migration Scripts
 
-Generate an empty migration file
+```bash
+# Generate a migration file from changes to entity files
+yarn migration:generate
 
-`yarn migration:create`
+# Generate an empty migration file
+yarn migration:create
 
-Run migrations
+# Run migrations
+yarn migration:run
 
-`yarn migration:run`
+# Revert a migration
+yarn migration:revert
 
-Revert a migration
+# Display the status of all migrations
+yarn migration:show
+```
 
-`yarn migration:revert`
+### Utility Scripts
 
-Display the status of all migrations
+```bash
+# Seed the database
+yarn setup:seedDatabase
 
-`yarn migration:show`
+# Wipe existing data and seed the database
+yarn setup:seedDatabase --wipeOldData
+```
