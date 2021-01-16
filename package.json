@@ -10,7 +10,14 @@
     "watch": "lerna run --parallel watch",
     "test": "lerna run test --stream",
     "build": "lerna run build",
-    "lint:all": "eslint . --ext .ts"
+    "lint:all": "eslint . --ext .ts",
+    "setup:localDatabases": "sh packages/scripts/localSetup/databases.sh",
+    "setup:ormconfig": "ts-node ./packages/scripts/configureFiles/ormConfig.ts",
+    "migration:create": "ts-node ./node_modules/typeorm/cli.js migration:create",
+    "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
+    "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert",
+    "migration:show": "ts-node ./node_modules/typeorm/cli.js migration:show",
+    "migration:generate": "ts-node ./node_modules/typeorm/cli.js migration:generate"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.9.0",
