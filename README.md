@@ -1,10 +1,38 @@
 # Dreamcacher
 
-To Do
+This project is meant to be a repository for best practices and technologies I've picked up over the past year. Instead of storing them in a contextless environment, I'm incorporating them into a side project.
+
+Dreamcacher is eventually meant to be a dream journaling application that incorporates data visualization and natural language processing features.
+
+### Product Todo's
+
+- [ ] Outline MVP feaures
+- [ ] Create wireframes
+
+Infrastructure Todo's
 
 - [ ] Set up continuous deployment
 - [ ] Setup up continuous integration
 - [ ] Set up .env file configuration scripts
+- [ ] Set up integration tests
+
+API Todo's
+
+- [ ] Add error handling
+- [ ] Add request schema validation
+- [ ] Add integration and unit tests
+
+Datbase Todo's
+
+- [ ] Add entity integration tests
+
+Web Todo's
+
+- [ ] Create Dreams index page with filtering and sorting
+
+Longer Term Todo's
+
+- [ ] Add users and authentication
 
 ## Project Setup
 

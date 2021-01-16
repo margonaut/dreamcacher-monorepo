@@ -3,4 +3,5 @@ export const sum = (a: number, b: number): number => {
 }
 
 export { getEnvPath } from './getPath'
-export { generateConfig } from './config'
+export { generateConfig, ConfigurationValues } from './config'
+export { HttpStatusCode } from './httpStatuses'

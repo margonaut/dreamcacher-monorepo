@@ -9,8 +9,9 @@
     "test": "yarn build && export APP_ENV=test && jest --runInBand"
   },
   "dependencies": {
-    "express": "^4.17.1",
     "@dreamcacher/shared": "0.1.0",
+    "@dreamcacher/database": "0.1.0",
+    "express": "^4.17.1",
     "@hapi/joi": "^17.1.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",

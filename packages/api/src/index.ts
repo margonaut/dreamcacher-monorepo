@@ -1,13 +1,13 @@
-import express from 'express'
-import { sum } from '@dreamcacher/shared'
+/**
+ * This file should serve as the main entrypoint of the Dreamcacher API
+ *
+ * @packageDocumentation
+ */
 
-const app = express()
-const port = 3001
+import { initializeApp } from './app'
 
-app.get('/', (req, res) => {
-  res.send(`The sum is! ${sum(2, 2)}`)
-})
+const PORT = process.env.PORT || 3001
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+initializeApp().then((app) => {
+  app.listen(PORT, () => console.log(`Dreamcacher API running at ${PORT}...`))
 })
